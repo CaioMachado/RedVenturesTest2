@@ -9,7 +9,7 @@ angular.module('WebApp.services', [])
                 url: 'http://127.0.0.1:8081/reset',
                 cache: false
             });
-        }
+        };
 
         webAppAPI.isSumTwo = function () {
             return $http({
@@ -17,7 +17,7 @@ angular.module('WebApp.services', [])
                 url: 'http://127.0.0.1:8081/is-sum-2',
                 cache: false
             });
-        }
+        };
 
         webAppAPI.getNumbers = function () {
             return $http({
@@ -25,7 +25,7 @@ angular.module('WebApp.services', [])
                 url: 'http://127.0.0.1:8081/get-numbers',
                 cache: false
             });
-        }
+        };
 
         webAppAPI.addNumber = function (data) {
             var json = JSON.stringify(data);
@@ -35,13 +35,6 @@ angular.module('WebApp.services', [])
                 data: data,
                 headers: { 'Content-Type': 'application/json' }
             })
-                .success(function (data) {
-                    if (statuscode === 400)
-                        return false;
-                    else
-                        return true;
-                })
-                .error(function (data) { return false; })
         };
 
         return webAppAPI;

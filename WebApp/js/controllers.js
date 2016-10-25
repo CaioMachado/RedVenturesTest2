@@ -1,5 +1,5 @@
 angular.module('WebApp.controllers', []).
-    controller('IndexController', function ($scope, webAppAPI, $window, $routeParams) {
+    controller('IndexController', function ($scope, webAppAPI, $routeParams) {
 
         $scope.startPage = function () {
             $scope.number = "";
@@ -17,7 +17,7 @@ angular.module('WebApp.controllers', []).
                 alert("Requested was processed successfully!");
                 $scope.startPage();
             }, function (response) {
-                alert("An error occurred trying to process:" + response.data);
+                alert("An error occurred trying to process: " + response.data);
             });
         }
 
@@ -29,13 +29,19 @@ angular.module('WebApp.controllers', []).
 
         $scope.startPage();
     }).
-    controller('issumtwocontroller', function ($scope, webAppAPI, $window, $routeParams) {
+    controller('IsSumTwoController', function ($scope, webAppAPI, $routeParams, $location) {
 
         $scope.issumtwo = "";
+
 
         $scope.check = function (number) {
             webAppAPI.isSumTwo().success(function (response) {
                 $scope.issumtwo = response.result == true ? "Yes." : "No.";
             });
-        }
+        };
+    }).
+    controller('HeaderController', function ($scope, $location) {
+        $scope.isActive = function (viewLocation) {
+            return viewLocation === $location.path();
+        };
     });

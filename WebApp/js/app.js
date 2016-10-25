@@ -3,9 +3,9 @@ angular.module('WebApp', [
   'WebApp.controllers',
   'ngRoute'
 ]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.
-	when("/", {templateUrl: "index.html"}).        
-    when("/IsSum2", {templateUrl: "issum2.html"}).	
-	otherwise({redirectTo: 'index.html'});
-}]);
+  config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.
+      when("/numbers", { templateUrl: "partials/numbers.html" }).
+      when("/issum2", { templateUrl: "partials/issum2.html" }).
+      otherwise({ redirectTo: '/numbers' });
+  }]);
